@@ -1,0 +1,129 @@
+<div class="map-container">
+    <div id="map"></div>
+
+    <div class="top-bar">
+        <div class="shadowed-box search-container">
+            <i id="search-icon" class="fas fa-search"></i>
+            <input id="pac-input" class="controls" type="text" placeholder="Search for a location">
+        </div>
+
+        <div class="shadowed-box area-summary">
+            <div>
+                <i class="far fa-map"></i>
+                <span>
+                    <span id="area">N/A</span> m sq</span>
+            </div>
+
+            <div>
+                <span id="send-volunteers">
+                    Send Voulunteers
+                </span>
+            </div>
+        </div>
+    </div>
+
+    {{!--
+    <div class="shadowed-box feedback-container">
+        <div>
+            <i class="fas fa-exclamation-circle"></i>
+            <span id="feedback">Choose a time, date & location for your event</span>
+        </div>
+    </div> --}} {{!--
+    <button id="location-submit" class="submit-button" type="button" disabled>Next - Checkout</button> --}}
+</div>
+
+<div id="request-form" class="modal-container">
+    <div class="modal">
+        <div class="modal-item">
+            <label>Health care</label>
+            <input type="number" name="">
+        </div>
+
+        <div class="modal-item">
+            <label>Civel</label>
+            <input type="number" name="">
+        </div>
+
+        <div class="modal-item">
+            <label>General</label>
+            <input type="number" name="">
+        </div>
+
+        <div class="modal-item">
+            <label>General</label>
+            <input type="number" name="">
+        </div>
+
+        <div class="time-picker">
+            <div class="time">
+                <label class="item">From</label>
+                <select id="from-time">{{!-- options will be added dynamically by js --}}</select>
+            </div>
+
+            <div class="time">
+                <label>To</label>
+                <select id="to-time">{{!-- options will be added dynamically by js --}}</select>
+            </div>
+        </div>
+
+        <button id="cancel-request" class="button rounded landing-buttons animated fadeInLeft">Cancel</button>
+        <button id="confirm-request" class="button rounded landing-buttons animated fadeInLeft">Confirm</button>
+
+    </div>
+</div>
+
+<div id="chat-form" class="modal-container">
+    <div class="modal chat-modal">
+        <div class="contacts">
+            <div class="modal-item contact">
+                <img src="../images/Prof_pic.jpg" alt="user-image">
+                <label>Ibrahim Alraigi</label>
+            </div>
+
+            <div class="modal-item contact">
+                <img src="../images/Prof_pic.jpg" alt="user-image">
+                <label>Ibrahim Alraigi</label>
+            </div>
+
+            <div class="modal-item contact">
+                <img src="../images/Prof_pic.jpg" alt="user-image">
+                <label>Ibrahim Alraigi</label>
+            </div>
+
+            <div class="modal-item contact">
+                <img src="../images/Prof_pic.jpg" alt="user-image">
+                <label>Ibrahim Alraigi</label>
+            </div>
+
+            <div class="modal-item contact">
+                <img src="../images/Prof_pic.jpg" alt="user-image">
+                <label>Ibrahim Alraigi</label>
+            </div>
+
+            <div class="modal-item contact">
+                <img src="../images/Prof_pic.jpg" alt="user-image">
+                <label>Ibrahim Alraigi</label>
+            </div>
+
+            <div class="modal-item contact">
+                <img src="../images/Prof_pic.jpg" alt="user-image">
+                <label>Ibrahim Alraigi</label>
+            </div>
+
+            <div class="modal-item contact">
+                <img src="../images/Prof_pic.jpg" alt="user-image">
+                <label>Ibrahim Alraigi</label>
+            </div>
+        </div>
+
+        <button id="cancel-chat" class="button rounded landing-buttons animated fadeInLeft">Cancel</button>
+        <button id="send-chat" class="button rounded landing-buttons animated fadeInLeft">Send</button>
+
+    </div>
+</div>
+
+<script src="javascripts/location.js"></script>
+<script src="/javascripts/ajax.js"></script> {{!--
+<script src="public/javascripts/heatmap.js"></script> --}}
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALzq47tZPZpD96Jlm2Tx5SRvV2dQYEOh4&callback=initMap&v=3.exp&sensor=false&libraries=places&libraries=visualization"></script>

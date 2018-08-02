@@ -1,0 +1,211 @@
+<div class="container">
+    
+    <ul class="progressbar">
+        <li class="current-step">Edit Your Filter</li>
+        <li>Choose Date & Location</li>
+        <li>Checkout</li>
+    </ul>
+
+    <div class="editor-container">
+        <div class="col scroll-bar" id="filters-col">
+            <div class="filter no-template">
+                <h3>Start from scratch</h3>
+                <p>Make a filter without using one of our templates</p>
+                <p class="filter-price">$4.99</p>
+            </div>
+        </div>
+
+        <div class="col" id="canvas-col">
+            <button id="undo" disabled>
+                <i class="fas fa-undo"></i>
+            </button>
+            <button id="redo" disabled>
+                <i class="fas fa-redo"></i>
+            </button>
+
+            <canvas id="canvas" width="270" height="585"></canvas>
+
+            <div id="not-allowed-top">Text & Elements are not allowed here</div>
+            <div id="not-allowed-bottom">Text & Elements are not allowed here</div>
+        </div>
+
+        <div class="col" id="tools-col">
+            <button id="addText" class="button button-tall" type="button">
+                <img class="small" src="/images/text-icon.svg">
+                <h3>Text</h3>
+                <span class="close-button">&times;</span>
+            </button>
+
+            <button id="addEmojie" class="button button-tall" type="button">
+                <img src="/images/emoji.png" alt="">
+                <h3>Emoji</h3>
+                <span class="close-button">&times;</span>
+            </button>
+
+
+            <button id="addElement" class="button button-tall" type="button">
+                <img src="/images/elements/010-grill.png" alt="">
+                <h3>Element</h3>
+                <span class="close-button">&times;</span>
+            </button>
+
+            <button class="button button-tall" value="Upload an Image" onclick="document.getElementById('uploadedImage').click();">
+                <i class="fas fa-upload"></i>
+                <h3>Upload Image</h3>
+            </button>
+            <input style="display:none;" id="uploadedImage" type="file"></input>
+
+            <button id="bitmoji-button" class="button button-tall" type="button">
+                <img src="/images/bitmoji.png" alt="">
+                <h3>Bitmoji</h3>
+            </button>
+            
+            <button id="preview-button" class="button button-tall" type="button">
+                <i class="fas fa-eye"></i>
+                <h3>Preview</h3>
+            </button>
+
+            <div id="FW_BW_Manipulation" hidden>
+                <button class="button rounded" id="sendBackwards">
+                    <img src="/images/send-backward.png">
+                    <h4>Send Backwards</h4>
+                </button>
+                
+                <button class="button rounded" id="bringForward">
+                    <img src="/images/bring-forward.png">
+                    <h4>Bring Forward</h4>
+                </button>
+                <button class="button rounded" id="deleteElement">
+                    <i class="fas fa-trash-alt"></i>
+                    <h4>Delete</h4>
+                </button>
+            </div>
+
+            <div id="text-manipulation" hidden>
+                <div class="row">
+                    <label class="text" for="font-family">Font</label>
+                    <select class="select" name="font-family" id="font-family"></select>
+                </div>
+
+                <table>
+                    <tr>
+                        <td class="text">Text Color:</td>
+                        <td class="color-picker-container">
+                            <input class="color-picker" id="text-color" type="text">
+                        </td>
+                        <td></td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="text">Back Color:</td>
+                        <td class="color-picker-container">
+                            <input class="color-picker" id="text-bg-color" type="text" value="#305AA2">
+                            <span class="red-cross"></span>
+                        </td>
+                        <td>
+                            <i id="text-bg-color-remove" class="fas fa-trash-alt"></i>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="text">Stroke color:</td>
+                        <td class="color-picker-container">
+                            <input class="color-picker" id="text-stroke-color" type="text">
+                            <span class="red-cross"></span>
+                        </td>
+                        <td>
+                            <i id="text-stroke-width-remove" class="fas fa-trash-alt"></i>
+                        </td>
+                    </tr>
+                </table>
+
+                <div class="range-slider">
+                    <label class="text" for="text-stroke-width">Stroke width:</label>
+                    <input class="range-slider__range" type="range" value="1" min="1" max="3" id="text-stroke-width">
+                </div>
+
+                <div class="range-slider">
+                    <label class="text" for="text-shadow">Shadow:</label>
+                    <input class="range-slider__range" type="range" value="0" min="0" max="10" id="text-shadow">
+                </div>
+
+                {{!-- <div class="range-slider">
+                    <input class="range-slider__range" type="range" value="100" min="0" max="500">
+                    <span class="range-slider__value">0</span>
+                </div> --}}
+
+                <div id="text-controls-additional">
+                    <p class="text">Properties</p>
+                    <input type="checkbox" name="fonttype" id="text-cmd-bold" value="Bold">
+                    <label for="text-cmd-bold"></label>
+
+                    <input type="checkbox" name="fonttype" id="text-cmd-italic" value="Italic">
+                    <label for="text-cmd-italic"></label>
+
+                    <input type="checkbox" name="fonttype" id="text-cmd-underline" value="Underline">
+                    <label for="text-cmd-underline"></label>
+
+                    <input type="checkbox" name="fonttype" id="text-cmd-linethrough" value="Linethrough">
+                    <label for="text-cmd-linethrough"></label>
+
+                    <input type="checkbox" name="fonttype" id="text-cmd-overline" value="Overline">
+                    <label for="text-cmd-overline"></label>
+                </div>
+            </div>
+
+            <div id="emojiesContainer" hidden></div>
+
+            <div id="elementsContainer" hidden></div>
+
+            <button id="editor-submit" class="submit-button" type="button" disabled>Next - Location</button>
+        </div>
+    </div>
+</div>
+
+<div class="preview">
+    <div class="preview-content">
+    <span class="close">&times;</span>
+
+        <div class="phone-container">
+            <img src="" alt="Your Filter">
+        </div>
+
+        <div class="tg-list-item">
+            <h4>Tall Phones</h4>
+            <input class="tgl tgl-ios" id="toggle-view" type="checkbox"/>
+            <label class="tgl-btn" for="toggle-view"></label>
+            <h4>Short Phones</h4>
+
+            <img src="/images/iphone-white.png" alt="iphone-frame">
+        </div>
+    </div>
+</div>
+
+<div class="bitmoji-tutorial">
+    <div class="bitmoji-tutorial-content">
+
+    <span class="close">&times;</span>
+        <ul>
+            <li><span>Step 1</span> Install Bitmoji Chrome Extension: <a target="_blank" href="https://chrome.google.com/webstore/detail/bitmoji/bfgdeiadkckfbkeigkoncpdieiiefpig">Click here</a></li>
+            <li><span>Step 2</span> Login to your Bitmoji Account.</li>
+            <li><span>Step 3</span> Drag & drop your favorite Bitmoji onto the canvas.</li>
+        </ul>
+
+        <div class="bitmoji-gif">
+            gif here..
+        </div>
+    </div>
+</div>
+
+{{!-- Fonts --}}
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+<script src="/javascripts/fonts.js"></script>
+<link rel="stylesheet" href="/stylesheets/fonts.css">
+
+{{!-- Color Picker --}}
+<script src="/javascripts/spectrum.js"></script>
+<link rel="stylesheet" href="/stylesheets/spectrum.css">
+
+{{!-- General --}}
+<script src="/javascripts/editor.js"></script>
+<script src="/javascripts/ajax.js"></script>

@@ -1,0 +1,98 @@
+<div class="container">
+    <ul class="progressbar">
+        <li class="done-step">Edit Your Filter</li>
+        <li class="done-step">Choose Date & Location</li>
+        <li class="current-step">Checkout</li>
+    </ul>
+</div>
+
+<div class="container">
+    <div class="order-summary shadowed-box">
+        <div>
+            <h3>Order Summary</h3>
+            <p>Make sure your filter, its time, date and location are correct</p>
+
+            <img src="{{ filter }}" alt="your-filter-pic">
+            <div id="location-summary"></div>
+
+            <div class="order-summary-info">
+                <div>
+                    <span class="bold">Start time</span>
+                    <span id="start-time-summary">{{ startDate }} {{ startTime }}</span>
+                </div>
+                <div>
+                    <span class="bold">End time</span>
+                    <span id="end-time-summary">{{ endDate }} {{ endTime }}</span>
+                </div>
+                <div>
+                    <span class="bold">Area coverd</span>
+                    <span id="end-time-summary">{{ areaCovered }} Sq Ft</span>
+                </div>
+
+                <div id="total-payment">
+                    <div id="breakdown">
+                        <div>
+                            <span>Geofilter Design Fees:</span>
+                            <span id="breakdown-price-1">$14.99</span>
+                        </div>
+
+                        <div>
+                            <span>Snapchat Activation Fees:</span>
+                            <span id="breakdown-price-1">${{ snapchatPrice }}</span>
+                        </div>
+                    </div>
+
+                    <div id="total">
+                        <span class="bold">Total:</span>
+                        <span id="total-price">-</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="payment-form shadowed-box">
+        <div>
+            <h3>Payment</h3>
+            <p>Provide your card info</p>
+        </div>
+
+        <div>
+            <form action="/checkout" id="visa-form-wrap" method="post">
+                {{!--
+                <input type="hidden" name="_csrf" value="{{ csrfToken }}"> --}}
+
+                <div>
+                    <input type="text" id="card-name" class="input-text" placeholder="Name on card" required>
+                    <input type="text" id="address" name="address" class="input-text" placeholder="Address" required>
+                </div>
+
+                <div class="card-info">
+                    <input type="text" id="card-number" class="input-text" placeholder="Card Number" required>
+                    <input type="text" placeholder="MM" id="card-expiry-month" class="input-text" required>
+                    <span>/</span>
+                    <input type="text" placeholder="YY" id="card-expiry-year" class="input-text" required>
+                    <input type="text" id="card-cvc" class="input-text" placeholder="CVC" required>
+                </div>
+
+                <input type="submit" value="Submit & Pay" class="submit-button">
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    var reqLat = {{ reqLat }};
+    var reqLng = {{ reqLng }};
+    var reqRadius = {{ reqRadius }};
+
+    var totalPrice = {{ totalPrice }};
+    console.log(totalPrice);
+    $('#total-price').text('$' + totalPrice.toFixed(2));
+</script>
+
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script type="text/javascript" src="javascripts/checkout.js"></script>
+<script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALzq47tZPZpD96Jlm2Tx5SRvV2dQYEOh4&callback=initMap&v=3.exp&sensor=false&libraries=places"></script>
