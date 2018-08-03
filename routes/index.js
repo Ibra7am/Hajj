@@ -8,14 +8,17 @@ var axios = require('axios');
 
 
 /* GET home page. */
-router.get('/', function (req, res, next) {
-  res.render('index', { title: 'VTS | Home' });
-});
+// router.get('/', function (req, res, next) {
+//   res.render('index', { title: 'VTS | Home' });
+// });
 
 /* GET edit page. */
 router.get('/manage', function (req, res, next) {
   res.render('location', { title: 'VTS | Manage Volunteers' });
-  
+});
+
+router.get('/stats', function (req, res, next) {
+  res.render('stats', { title: 'VTS | Stats' });
 });
 
 module.exports = router;

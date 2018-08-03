@@ -46,12 +46,12 @@ header {
 }
 
 .header-space {
-  position: relative;
+  position: fixed;
   margin-top: 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   background: var(--orange);
   /* background-image: linear-gradient(170deg, #F4DEAB 0%, var(--orange) 100%); */
-  width: 7.5%;
+  width: 105px;
   height: 100vh;
   text-align: center;
   display: inline-block;
@@ -74,6 +74,58 @@ header {
   margin: 0 auto;
 }
 
+.side-container {
+  width: calc(100% - 105px);
+  float: left;
+  margin-top: 75px;
+  margin-left: 170px;
+  min-height: 205vh;
+}
+
+.stat-row {
+  /* border-bottom: 1px solid rgba(0, 0, 0, 0.15); */
+  /* padding-bottom: 40px; */
+  width: 90%;
+  height: 320px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+  padding: 25px;
+  border-radius: 25px;
+  margin-bottom: 25px;
+}
+
+.stat-row > h2 {
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0;
+  border-bottom: 1px solid #0000002e;
+  padding-bottom: 10px;
+}
+
+.stat-item {
+  margin: 10px 28px;
+  float: left;
+  width: 325px;
+  height: 250px;
+}
+
+.stat-active {
+  color: #39bd39;
+}
+
+.stat-idle {
+  color: #e03939;
+}
+
+.stat-item h2 {
+  /* display: inline-block; */
+  text-align: center;
+  font-size: 1.75em;
+}
+
+.stat-item h2:nth-of-type(2) {
+  font-size: 3em;
+}
+
 .section-1, .section-2, .section-4, .section-5 {
   height: 85vh;
   padding: 5vh 0;
@@ -83,14 +135,15 @@ header a {
   text-decoration: none;
   text-transform: uppercase;
   font-size: 1.1em;
-  color: var(--redish);
+  color: #fff;
   cursor: pointer;  
-  transition: color 0.3s;
+  transition: all 0.3s;
 }
 
 header a:hover {
-  color: var(--light);  
-  padding-bottom: 1px;
+  /* color: var(--light);   */
+  text-shadow: 0 0 20px white;
+  /* padding-bottom: 1px; */
   /* border-bottom: 1px solid; */
   /* font-weight: bold; */
 }
@@ -204,7 +257,7 @@ a {
 
 .modal {
   width: 290px;
-  height: 250px;
+  height: 400px;
   /* margin: auto; */
   background: #ffffff;
   padding: 25px;
@@ -214,7 +267,7 @@ a {
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.34901960784313724);
   border-radius: 15px;
   position: absolute;
-  top: 80px;
+  top: 140px;
   right: 40px;
 }
 
@@ -223,7 +276,7 @@ a {
 }
 
 .modal .modal-item label {
-  min-width: 138px;
+  min-width: 170px;
   display: inline-block;
   font-size: 1.2em;
 }
@@ -242,8 +295,8 @@ a {
 
 .modal .loading {
   width: 120px;
-  margin: 65px;
-  opacity: 0.6;
+  margin: 85px;
+  opacity: 0.5;
 }
 
 .modal p {
@@ -253,16 +306,32 @@ a {
   margin-top: 100px;
 }
 
+.modal .modal-item-long label {
+  min-width: auto;
+}
+
+.modal .modal-item-long input {
+  width: 54%;
+  height: 20px;
+  font-size: 1em;
+  text-align: inherit;
+}
+
 .chat-modal {
   height: 600px;
-  width: 300px;
+  width: 330px;
   left: 120px;
+}
+
+.chat-modal input[name="message"]{
+  margin: 8px;
 }
 
 .chat-modal .modal-item {
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   padding: 7px;
   margin: 0;
+  height: 50px;
 }
 
 .chat-modal .modal-item-selected {
@@ -270,12 +339,20 @@ a {
 }
 
 .chat-modal .landing-buttons {
-  margin: 30px 22px 0 0;
+  margin: 15px 22px 0 0;
 }
 
 .chat-modal .contacts {
-  height: 85%;
+  height: 80%;
   overflow-y: auto;
+}
+
+.chat-modal .contact {
+  cursor: pointer;
+}
+
+.chat-modal .contact * {
+  cursor: pointer;
 }
 
 .chat-modal img {
@@ -295,6 +372,39 @@ a {
 .chat-modal label {
   vertical-align: top;
   margin: 11px;
+}
+
+.leader-modal {
+  width: 380px;
+  height: auto;
+  right: 10px;
+}
+
+.leader-modal .modal-item label {
+  min-width: auto;
+}
+
+.leader-modal .modal-item input {
+  width: 120px;
+  height: 20px;
+  font-size: 1.2em;
+}
+
+.leader-modal .landing-buttons {
+  margin: 10px 25px 0 25px;
+}
+
+.leader-modal .loading {
+  margin: 0 130px;
+}
+
+.leader-modal p {
+  margin: 20px;
+}
+
+#loading-modal {
+  left: 40%;
+  height: 275px;
 }
 
 .navbar .lang {
@@ -1065,10 +1175,10 @@ input::-moz-focus-outer {
 
 .landing-buttons {
   height: 50px;
-  width: 125px;
+  width: 130px;
   /* margin-top: 25px; */
   /* margin-right: 15px; */
-  margin: 30px 0px 0 0;
+  margin: 30px 5px 0 5px;
   background-color: #5f111100;
   /* font-size: 0.9em; */
   text-align: center;
@@ -1243,7 +1353,7 @@ input::-moz-focus-outer {
   height: 0;
   display: block;
   position: relative;
-  border-bottom: 3px solid #deb521;
+  border-bottom: 3px solid #589f9e;
 }
 
 .sub-heading {
@@ -1662,29 +1772,35 @@ footer .fa, footer .fab {
   position: absolute;
   right: 0;
   padding: 0px;
-  width: 350px;
-  height: 40px;
+  width: 400px;
+  height: 100px;
   text-align: center;
   font-size: 1.0em;
 }
 
-.area-summary div {
+.area-summary > div {
   height: 30px;
   line-height: 30px;
-  display: inline-block;
+  /* display: inline-block; */
   text-align: center;
-  width: 46%;
+  /* width: 47%; */
   padding: 5px;
-  overflow: hidden;
-  white-space: nowrap;
+  /* overflow: hidden; */
+  /* white-space: nowrap; */
 }
 
-.area-summary div:first-child {
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
+.area-summary > div:first-child {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .area-summary div:nth-child(2) {
-  font-weight: bold;
+  /* font-weight: bold; */
+}
+
+.area-summary .action-button {
+  width: 50%;
+  float: left;
+  margin-top: 10px;
 }
 
 .area-summary div i {
@@ -1696,18 +1812,17 @@ footer .fa, footer .fab {
 /* .area-summary div #price {
 } */
 
-#send-volunteers {
+#send-volunteers, #assign-leaders {
   cursor: pointer;
   background: #589f9e;
   color: white;
-  padding: 4px 15px;
-  border-radius: 6px;
+  padding: 7px 35px;
+  border-radius: 16px;
   transition: all 0.3s;
 }
-#send-volunteers:hover {
+#send-volunteers:hover, #assign-leaders:hover {
   background: #397776;
   color: white;
-
 }
 
 .price-summary {
@@ -1756,32 +1871,33 @@ footer .fa, footer .fab {
   font-weight: bold;
 }
 
-.time-range div label {
+.modal .time-range div label {
   text-transform: uppercase;
   margin-right: 10px;
   font-weight: bold;
   color: #7d7d7d;
 }
 
-.time-range div {
+.modal .time-range div {
   display: inline-block;
   padding: 5px;
   margin: 5px;
 }
 
-.time-range > div {
+.modal .time-range > div {
   width: 95%;
 }
 
-.time-picker {
+.modal .time-picker {
   /* width: 90%; */
+  margin-top: 30px;
 }
 
 .time-picker div:first-of-type {
   margin-right: 25px;
 }
 
-.time {
+.modal .time {
   /* width: 170px; */
   /* margin-right: 3%; */
   /* margin: 5px 0; */
@@ -1789,12 +1905,12 @@ footer .fa, footer .fab {
   display: inline-block;
 }
 
-.date {
+.modal .date {
   /* width: 90%; */
   margin-top: 25px;
 }
 
-select, input {
+.modal select, .modal input {
   height: 33px;
   font-size: 1.1em;
   border: none;
@@ -1805,13 +1921,13 @@ select, input {
   cursor: pointer;
 }
 
-input {
+.modal input {
   width: 215px;
   text-align: center;
   cursor: pointer;
 }
 
-input:hover, select:hover {
+.modal input:hover, .modal select:hover {
   background: rgb(210, 210, 210);
 }
 
@@ -1824,8 +1940,9 @@ input:hover, select:hover {
   position: relative;
   height: 100%;
   font-size: 0.9em;
-  width: 92.5%;
+  width: calc(100% - 105px);
   float: right;
+  height: 127vh;
 }
 
 .map-container #map {

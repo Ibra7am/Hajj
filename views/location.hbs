@@ -14,10 +14,18 @@
                     <span id="area">N/A</span> m sq</span>
             </div>
 
-            <div>
-                <span id="send-volunteers">
-                    Send Voulunteers
-                </span>
+            <div class="admin-actions">
+                <div class="action-button">
+                    <span id="send-volunteers">
+                        Send Voulunteers
+                    </span>
+                </div>
+                
+                <div class="action-button">
+                    <span id="assign-leaders">
+                        Assign Leaders
+                    </span>
+                </div>
             </div>
         </div>
     </div>
@@ -33,25 +41,30 @@
 </div>
 
 <div id="request-form" class="modal-container">
-    <div class="modal">
+    <div class="modal request-modal">
         <div class="modal-item">
             <label>Health care</label>
-            <input type="number" name="">
+            <input value="0" type="number" name="">
         </div>
 
         <div class="modal-item">
-            <label>Civel</label>
-            <input type="number" name="">
+            <label>Civiel</label>
+            <input value="0" type="number" name="">
+        </div>
+
+        <div class="modal-item">
+            <label>Translate</label>
+            <input value="0" type="number" name="">
         </div>
 
         <div class="modal-item">
             <label>General</label>
-            <input type="number" name="">
+            <input value="0" type="number" name="">
         </div>
 
-        <div class="modal-item">
-            <label>General</label>
-            <input type="number" name="">
+        <div class="modal-item modal-item-long">
+            <label>Message</label>
+            <input type="text" name="message" placeholder="message">
         </div>
 
         <div class="time-picker">
@@ -69,6 +82,25 @@
         <button id="cancel-request" class="button rounded landing-buttons animated fadeInLeft">Cancel</button>
         <button id="confirm-request" class="button rounded landing-buttons animated fadeInLeft">Confirm</button>
 
+    </div>
+</div>
+
+<div id="leader-form" class="modal-container">
+    <div class="modal leader-modal">
+        <div class="modal-item">
+            <label>Leader phone number</label>
+            <input placeholder="phone num." type="text" name="">
+        </div>
+
+        <button id="cancel-leader" class="button rounded landing-buttons animated fadeInLeft">Cancel</button>
+        <button id="send-leader" class="button rounded landing-buttons animated fadeInLeft">Send</button>
+
+    </div>
+</div>
+
+<div class="modal-container loading-form">
+    <div id="loading-modal" class="modal">
+        <img src="../images/loading.gif" alt="loading">
     </div>
 </div>
 
@@ -114,8 +146,33 @@
                 <img src="../images/Prof_pic.jpg" alt="user-image">
                 <label>Ibrahim Alraigi</label>
             </div>
+
+            <div class="modal-item contact">
+                <img src="../images/Prof_pic.jpg" alt="user-image">
+                <label>Ibrahim Alraigi</label>
+            </div>
+
+            <div class="modal-item contact">
+                <img src="../images/Prof_pic.jpg" alt="user-image">
+                <label>Ibrahim Alraigi</label>
+            </div>
+
+            <div class="modal-item contact">
+                <img src="../images/Prof_pic.jpg" alt="user-image">
+                <label>Ibrahim Alraigi</label>
+            </div>
+
+            <div class="modal-item contact">
+                <img src="../images/Prof_pic.jpg" alt="user-image">
+                <label>Ibrahim Alraigi</label>
+            </div>
         </div>
 
+        <div class="modal-item modal-item-long">
+            <label>Message</label>
+            <input type="text" name="message" placeholder="message">
+        </div>
+        
         <button id="cancel-chat" class="button rounded landing-buttons animated fadeInLeft">Cancel</button>
         <button id="send-chat" class="button rounded landing-buttons animated fadeInLeft">Send</button>
 
@@ -126,4 +183,4 @@
 <script src="/javascripts/ajax.js"></script> {{!--
 <script src="public/javascripts/heatmap.js"></script> --}}
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALzq47tZPZpD96Jlm2Tx5SRvV2dQYEOh4&callback=initMap&v=3.exp&sensor=false&libraries=places&libraries=visualization"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALzq47tZPZpD96Jlm2Tx5SRvV2dQYEOh4&libraries=visualization,places&callback=initMap&v=3.exp&sensor=false"></script>
